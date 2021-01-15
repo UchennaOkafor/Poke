@@ -14,7 +14,9 @@ An android app that makes use of the https://pokeapi.co/ API.
 
 ### Resources used
 https://www.youtube.com/watch?v=CTvzoVtKoJ8
+
 https://square.github.io/picasso/
+
 https://developer.android.com/guide/topics/ui/layout/recyclerview
 
 ### Screenshot
