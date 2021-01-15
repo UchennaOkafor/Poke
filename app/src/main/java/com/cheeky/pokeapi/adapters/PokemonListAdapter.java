@@ -18,19 +18,19 @@ import com.cheeky.pokeapi.models.Pokemon;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.PokemonViewHolder> implements Filterable {
 
-    private List<Pokemon> _pokemons;
+    private final List<Pokemon> _allPokemons;
     private List<Pokemon> _filteredPokemons;
     private Filter _searchFilter;
 
     public PokemonListAdapter(List<Pokemon> pokemons){
-        _pokemons = pokemons;
+        _allPokemons = pokemons;
         _filteredPokemons = pokemons;
+        initializeSearchFilter();
     }
 
     private void initializeSearchFilter() {
@@ -39,12 +39,9 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             protected FilterResults performFiltering(CharSequence constraint) {
                 String searchQuery = constraint.toString().isEmpty() ? "" : constraint.toString().toLowerCase();
 
-                List<Pokemon> pokemons = _pokemons.stream()
+                _filteredPokemons = _allPokemons.stream()
                         .filter(pokemon -> pokemon.getName().toLowerCase()
                                 .contains(searchQuery)).collect(Collectors.toList());
-
-
-                _filteredPokemons.addAll(pokemons);
 
                 FilterResults results = new FilterResults();
                 results.values = _filteredPokemons;
@@ -67,12 +64,12 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
     @Override
     public void onBindViewHolder(PokemonViewHolder holder, int position) {
-        holder.updatePokemon(_pokemons.get(position));
+        holder.updatePokemon(_filteredPokemons.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return _pokemons.size();
+        return _filteredPokemons.size();
     }
 
     @Override
@@ -111,7 +108,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         public void updatePokemon(Pokemon pokemon) {
             currentPokemon = pokemon;
             tvPokemonName.setText(pokemon.getName());
-            Picasso.get().load(pokemon.getPictureUrl()).into(ivPokemonPicture);
+            Picasso.get().load(pokemon.getPictureUrl())
+                    .error(R.drawable.placeholder_image).into(ivPokemonPicture);
         }
     }
 }
