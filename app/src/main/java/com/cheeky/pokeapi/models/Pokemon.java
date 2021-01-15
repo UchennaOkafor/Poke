@@ -5,6 +5,11 @@ public class Pokemon {
     private String name;
     private String url;
 
+    public Pokemon(String name, String url) {
+        setName(name);
+        setUrl(url);
+    }
+
     public String getName() {
         return name.substring(0, 1).toUpperCase() + name.substring(1);
     }

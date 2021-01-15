@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializePokedex() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        JsonObjectRequest  jsonObjectRequest = new JsonObjectRequest (Request.Method.GET,
+        JsonObjectRequest  jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 PokeEndpoints.API_POKEDEX_ENDPOINT, null, response -> {
             try {
                 //Deserializing the returned JSON array and using it to initialize the recycler view adapter
@@ -67,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }, error -> {
-            Toast.makeText(this, "Unable to load the list of pokemons", Toast.LENGTH_SHORT).show();
-        });
+        }, error -> Toast.makeText(this, "Unable to load the list of pokemons", Toast.LENGTH_SHORT).show());
 
         requestQueue.add(jsonObjectRequest);
     }
