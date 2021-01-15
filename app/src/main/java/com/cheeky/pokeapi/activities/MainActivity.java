@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializePokedex() {
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-
         JsonObjectRequest  jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 PokeEndpoints.API_POKEDEX_ENDPOINT, null, response -> {
             try {
@@ -69,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, error -> Toast.makeText(this, "Unable to load the list of pokemons", Toast.LENGTH_SHORT).show());
 
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonObjectRequest);
     }
 
