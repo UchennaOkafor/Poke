@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Poke</string>
     <string name="main_activity_title">Search…</string>
+    <string name="pokemon_name_placeholder">Name</string>
+    <string name="pokemon_picture_desc">Pokemon\'s Picture</string>
+    <string name="pokemon_info_base_xp">Base XP</string>
+    <string name="pokemon_info_weight">Weight</string>
+    <string name="pokemon_info_height">Height</string>
+    <string name="zero">0</string>
 </resources>

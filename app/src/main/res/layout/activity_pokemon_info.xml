@@ -15,14 +15,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/pokemon_picture_desc" />
 
     <TextView
         android:id="@+id/tvPokemonDetailsName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Pokemon's Name"
+        android:text="@string/pokemon_name_placeholder"
 
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +56,7 @@
                 android:layout_weight="1"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
-                android:text="Base XP"
+                android:text="@string/pokemon_info_base_xp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
@@ -64,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingVertical="5dp"
-                android:text="Weight"
+                android:text="@string/pokemon_info_weight"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
@@ -74,7 +75,7 @@
                 android:layout_weight="1"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
-                android:text="Height"
+                android:text="@string/pokemon_info_height"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         </LinearLayout>
@@ -92,7 +93,7 @@
                 android:layout_weight="1"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
-                android:text="0"
+                android:text="@string/zero"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
@@ -101,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingVertical="5dp"
-                android:text="0"
+                android:text="@string/zero"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
@@ -110,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingVertical="5dp"
-                android:text="0"
+                android:text="@string/zero"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </LinearLayout>
 
