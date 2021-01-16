@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     private void initializeWidgets() {
         rvPokemons = findViewById(R.id.rvPokemons);
         rvPokemons.setHasFixedSize(true);
-        rvPokemons.setHasFixedSize(true);
         rvPokemons.setItemAnimator(new DefaultItemAnimator());
         rvPokemons.setLayoutManager(new GridLayoutManager(this, 2));
         rvPokemons.addItemDecoration(new SpacesItemDecoration(25));

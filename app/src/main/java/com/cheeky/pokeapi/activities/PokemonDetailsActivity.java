@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class PokemonInfoActivity extends AppCompatActivity {
+public class PokemonDetailsActivity extends AppCompatActivity {
 
     private Pokemon currentPokemon;
     private TextView tvBaseXpValue, tvHeightValue, tvWeightValue;
@@ -26,11 +26,11 @@ public class PokemonInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pokemon_info);
+        setContentView(R.layout.activity_pokemon_details);
 
-        tvHeightValue = findViewById(R.id.tvHeightValue);
-        tvWeightValue = findViewById(R.id.tvWeightValue);
         tvBaseXpValue = findViewById(R.id.tvBaseXpValue);
+        tvWeightValue = findViewById(R.id.tvWeightValue);
+        tvHeightValue = findViewById(R.id.tvHeightValue);
 
         loadFullPokemonDetails();
     }

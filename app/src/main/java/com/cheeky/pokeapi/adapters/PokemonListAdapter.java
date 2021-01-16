@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cheeky.pokeapi.R;
-import com.cheeky.pokeapi.activities.PokemonInfoActivity;
+import com.cheeky.pokeapi.activities.PokemonDetailsActivity;
 import com.cheeky.pokeapi.models.Pokemon;
 import com.squareup.picasso.Picasso;
 
@@ -97,7 +97,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
             this.itemView.setOnClickListener(v -> {
                 Context context = this.itemView.getContext();
 
-                Intent intent = new Intent(context, PokemonInfoActivity.class);
+                Intent intent = new Intent(context, PokemonDetailsActivity.class);
                 intent.putExtra("pokemon_name", currentPokemon.getName());
                 intent.putExtra("pokemon_url", currentPokemon.getUrl());
 
