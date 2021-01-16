@@ -19,5 +19,7 @@ https://square.github.io/picasso/
 
 https://developer.android.com/guide/topics/ui/layout/recyclerview
 
+https://developer.android.com/training/volley/request
+
 ### Screenshot
 <img src="https://i.imgur.com/yNdARge.png">
