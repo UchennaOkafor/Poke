@@ -12,10 +12,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.cheeky.pokeapi.R;
 import com.cheeky.pokeapi.activities.PokemonDetailsActivity;
 import com.cheeky.pokeapi.models.Pokemon;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,8 +108,11 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         public void updatePokemon(Pokemon pokemon) {
             currentPokemon = pokemon;
             tvPokemonName.setText(pokemon.getName());
-            Picasso.get().load(pokemon.getPictureUrl())
-                    .error(R.drawable.placeholder_image).into(ivPokemonPicture);
+
+            Glide.with(itemView.getContext())
+                    .load(currentPokemon.getPictureUrl())
+                    .error(R.drawable.placeholder_image)
+                    .into(ivPokemonPicture);
         }
     }
 }

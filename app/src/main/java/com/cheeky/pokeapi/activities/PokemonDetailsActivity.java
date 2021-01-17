@@ -11,12 +11,16 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.cheeky.pokeapi.R;
 import com.cheeky.pokeapi.models.Pokemon;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 public class PokemonDetailsActivity extends AppCompatActivity {
 
@@ -43,8 +47,15 @@ public class PokemonDetailsActivity extends AppCompatActivity {
         ImageView ivPokemonPicture = findViewById(R.id.ivPokemonDetailsPicture);
         TextView tvPokemonName = findViewById(R.id.tvPokemonDetailsName);
 
-        Picasso.get().load(currentPokemon.getPictureUrl())
-                .error(R.drawable.placeholder_image).into(ivPokemonPicture);
+        DrawableCrossFadeFactory factory =
+                new DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build();
+
+        Glide.with(this)
+                .load(currentPokemon.getPictureUrl())
+                .transition(withCrossFade(factory))
+                .error(R.drawable.placeholder_image)
+                .into(ivPokemonPicture);
+
         tvPokemonName.setText(currentPokemon.getName());
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
@@ -53,6 +64,8 @@ public class PokemonDetailsActivity extends AppCompatActivity {
                 int baseExperience = response.getInt("base_experience");
                 int height = response.getInt("height") * 10;
                 int weight = response.getInt("weight") / 10;
+
+                //Didn't have enough time to think about how I would render this value
                 JSONArray types = response.getJSONArray("types");
 
                 tvBaseXpValue.setText(String.valueOf(baseExperience));
